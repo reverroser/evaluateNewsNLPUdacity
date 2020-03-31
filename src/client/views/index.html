@@ -5,43 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/styles/resets.scss">
-    <link rel="stylesheet" href="/styles/base.scss">
-    <link rel="stylesheet" href="/styles/header.scss">
-    <link rel="stylesheet" href="/styles/form.scss">
-    <link rel="stylesheet" href="/styles/footer.scss">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Playfair+Display:800&display=swap"
+        rel="stylesheet">
     <title>Evaluate News NLP Udacity</title>
 </head>
 
 <body>
-
-    <header>
-        <div class="">
-            Logo
+    <header class="header">
+        <div class="logo-container">
+            A.
         </div>
-        <div class="">
+        <div class="navigation-container">
             navigation
         </div>
     </header>
-
-    <main>
-        <section>
-            <form class="" id="form">
-                <input id="name" type="text" name="input" value="" placeholder="Name">
-                <input type="submit" name="" value="submit">
-            </form>
-            <section>
-
-                <section>
-                    <strong>Form Results:</strong>
-                    <div id="results"></div>
-                </section>
-    </main>
-
+    <div class="main-container">
+        <form class="form" id="form">
+            <textarea autofocus id="article" type="text" name="input" value=""
+                placeholder="Paste your article here"></textarea>
+            <div class="form-submit">
+                <div id="results" class="form-results"></div>
+                <button type="submit" name="check">Analize</button>
+            </div>
+        </form>
+    </div>
     <footer>
         <p>This is a footer</p>
     </footer>
-
 </body>
 
 </html>

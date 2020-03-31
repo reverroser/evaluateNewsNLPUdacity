@@ -1,6 +1,6 @@
 import { handleSubmit } from './js/formHandler'
 
-import './styles/resets.scss'
+import './styles/index.scss'
 
 const form = document.getElementById('form')
 form.onsubmit = e => handleSubmit(e);
