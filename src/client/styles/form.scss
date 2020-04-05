@@ -23,6 +23,7 @@
     display: flex;
     align-items: center;
     padding: 24px;
+    margin-left: auto;
 
     button {
         font-family: $secondary-font;
@@ -43,7 +44,5 @@
 }
 
 .form-results {
-    margin-right: auto;
-    font-family: $secondary-font;
-    font-size: 16px;
+    
 }

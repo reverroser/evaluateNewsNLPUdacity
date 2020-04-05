@@ -1,8 +1,8 @@
 const path = require('path')
 const aylien = require("aylien_textapi");
+const bodyParser = require("body-parser");
 const express = require('express')
 const dotenv = require('dotenv')
-const mockAPIResponse = require('./mockAPI.js')
 
 dotenv.config()
 
@@ -12,22 +12,38 @@ const textapi = new aylien({
     application_key: process.env.API_KEY
 });
 
-const app = express()
+const app = express();
 
+function launchWebsite(req, res) {
+    res.sendFile('dist/index.html')
+}
+
+function analizeDocument(req, res) {
+    const { document } = req.body
+    textapi.sentiment({
+        mode: 'document',
+        text: document
+    }, function (error, response) {
+        if (error === null) {
+            res.send(response);
+        } else {
+            res.send(error);
+        }
+    });
+}
+
+// Initialize the main project folder
 app.use(express.static('dist'))
 
+// Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // this opens the web client at http://localhost:8080/
-app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
-})
+app.get('/', launchWebsite)
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
-
-app.get('/analize', function (req, res) {
-    console.log(req);
-})
+// this makes a request to the aylien api to get back the analisis of the document
+app.post('/analize', analizeDocument)
 
 // designates what port the app will listen to for incoming requests
 app.listen(8080, function () {
