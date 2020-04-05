@@ -3,10 +3,14 @@ import { checkArticle } from './formChecker'
 function handleSubmit(event) {
     event.preventDefault()
 
+    const resultsEl = document.getElementById('results')
     const formText = document.getElementById('article').value
 
+    // Clean the html
+    resultsEl.innerHTML = ''
+
     if (!checkArticle(formText)) {
-        alert('The article field is empty!');
+        alert('The article field is not valid!');
         return;
     }
 
@@ -24,7 +28,7 @@ function handleSubmit(event) {
     })
         .then(res => res.json())
         .then(function (res) {
-            console.log(res)
+            resultsEl.innerHTML = `<div class="results-card">It is a <b>${res.polarity}</b>${res.subjectivity !== 'unknown' ? ` and <b>${res.subjectivity}</b>` : ''} article</div>`
         })
 }
 

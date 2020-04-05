@@ -1,9 +1,16 @@
-$white: #ffffff;
+// Fonts
 $main-font: 'Open Sans', sans-serif;
 $secondary-font: 'Lato', sans-serif;
 $logo-font: 'Playfair Display', sans-serif;
+
+// Colors
+$white: #ffffff;
 $main-font-color:#353535;
 $border-color: rgba(0, 0, 0, 0.1);
 $action-color: #304ffe;
 
+// Sizes
 $header-height: 64px;
+
+// Shadows
+$card-shadow: 0 10px 16px 0 rgba(0,0,0,0.16),0 6px 20px 0 rgba(0,0,0,0.12);
